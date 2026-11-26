@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wagner Fernandes | Suporte Técnico & Análise de Sistemas</title>
+    <title>Wagner Fernandes | Suporte Técnico, Winthor e SQL</title>
+    <meta name="description" content="Portfólio profissional de Wagner Fernandes: suporte técnico, ERP Winthor, bancos de dados SQL e desenvolvimento de sistemas.">
+    <meta name="theme-color" content="#0a0f1d">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Wagner Fernandes | Suporte Técnico, Winthor e SQL">
+    <meta property="og:description" content="Conheça minhas competências em suporte técnico, ERP e análise de sistemas.">
+    <meta property="og:url" content="https://wagnerfernandesse-create.github.io/landing_page-/">
     
     <!-- Google Fonts: Plus Jakarta Sans (Moderno e limpo) & Space Mono (Toque tecnológico/dados) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <style>
         :root {
@@ -321,37 +327,6 @@
             background: var(--accent-hover);
         }
 
-        /* Toast Notification */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--bg-surface);
-            border: 1px solid var(--accent);
-            color: var(--text-primary);
-            padding: 16px 24px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            z-index: 1000;
-            opacity: 0;
-            transform: translateY(20px);
-            pointer-events: none;
-            transition: var(--transition);
-        }
-
-        .toast.show {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .toast i {
-            color: var(--accent);
-        }
-
         footer {
             text-align: center;
             padding: 40px 0;
@@ -359,6 +334,43 @@
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
             font-family: 'Space Mono', monospace;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            z-index: 10;
+            padding: 12px 16px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            border-radius: 8px;
+            transform: translateY(-150%);
+        }
+
+        .skip-link:focus { transform: translateY(0); }
+        :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+        .hero-content, .resume-text { min-width: 0; }
+        .social-btn { min-height: 44px; }
+        .resume-card.is-unavailable { cursor: default; }
+        .resume-card.is-unavailable:hover { transform: none; box-shadow: none; border-color: var(--border-color); }
+        .resume-status { color: var(--text-secondary); font-size: 0.9rem; }
+        [hidden] { display: none !important; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition: none !important; animation: none !important; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+            header { padding: 32px 0 20px; }
+            .section-card { padding: 24px 18px; border-radius: 20px; }
+            .skills-grid { grid-template-columns: minmax(0, 1fr); }
+            .skill-item { padding: 14px; }
+            .resume-card { padding: 20px 14px; }
+            .hero-card h1 { font-size: clamp(1.65rem, 8vw, 2.2rem); }
+            .badge { font-size: 0.75rem; }
+            .subtitle { overflow-wrap: anywhere; }
         }
 
         @media (max-width: 768px) {
@@ -392,72 +404,76 @@
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
     <div class="container">
         <header>
             <div class="hero-card">
                 <div class="avatar-container">
-                    <img src="foto.jpg" alt="Wagner Fernandes" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="avatar-fallback" style="display:none;">WF</div>
+                    <!-- Quando foto.jpg estiver disponível, substitua este bloco pela imagem. -->
+                    <div class="avatar-fallback" aria-hidden="true">WF</div>
                 </div>
                 <div class="hero-content">
                     <div class="badge">
-                        <i data-lucide="terminal" size="14"></i>
+                        <i data-lucide="terminal" aria-hidden="true"></i>
                         <span>Suporte & Sistemas</span>
                     </div>
                     <h1>Wagner Fernandes</h1>
-                    <div class="subtitle">Especialista Winthor & Desenvolvedor em Evolução</div>
+                    <div class="subtitle">Suporte Técnico | ERP Winthor | SQL | Desenvolvimento</div>
                     
                     <div class="social-links">
-                        <a href="https://linkedin.com" target="_blank" class="social-btn">
-                            <i data-lucide="linkedin" size="16"></i> LinkedIn
+                        <a href="https://github.com/wagnerfernandesse-create" target="_blank" rel="noopener noreferrer" class="social-btn">
+                            <i data-lucide="github" aria-hidden="true"></i> GitHub
                         </a>
-                        <a href="https://github.com" target="_blank" class="social-btn">
-                            <i data-lucide="github" size="16"></i> GitHub
+                        <a href="#competencias" class="social-btn">
+                            <i data-lucide="code" aria-hidden="true"></i> Competências
                         </a>
-                        <a href="https://instagram.com" target="_blank" class="social-btn">
-                            <i data-lucide="instagram" size="16"></i> Instagram
-                        </a>
-                        <a href="https://youtube.com" target="_blank" class="social-btn">
-                            <i data-lucide="youtube" size="16"></i> YouTube
+                        <a href="#curriculo" class="social-btn">
+                            <i data-lucide="file-text" aria-hidden="true"></i> Currículo
                         </a>
                     </div>
                 </div>
             </div>
         </header>
 
-        <main>
+        <main id="conteudo">
             <section class="section-card">
-                <h2><i data-lucide="user"></i> Sobre Mim</h2>
+                <h2><i data-lucide="user" aria-hidden="true"></i> Sobre Mim</h2>
                 <p>Faço parte do time de T.I garantindo que o Winthor funcione de forma perfeita (ou quase). Minha rotina envolve assegurar a estabilidade de sistemas críticos, otimizando processos e resolvendo desafios complexos de infraestrutura e dados.</p>
                 <p>Além da forte atuação com o ecossistema ERP, estou em constante evolução técnica, expandindo meus horizontes para o desenvolvimento de software e aprimorando minhas habilidades com bancos de dados e lógica de programação.</p>
                 
-                <div class="skills-grid">
+                <div class="skills-grid" id="competencias">
                     <div class="skill-item">
-                        <i data-lucide="database"></i>
-                        <span>Banco de Dados SQL DBX</span>
+                        <i data-lucide="database" aria-hidden="true"></i>
+                        <span>SQL / SQL DBX</span>
                     </div>
                     <div class="skill-item">
-                        <i data-lucide="cpu"></i>
+                        <i data-lucide="cpu" aria-hidden="true"></i>
                         <span>Sistema Winthor ERP</span>
                     </div>
                     <div class="skill-item">
-                        <i data-lucide="settings"></i>
+                        <i data-lucide="settings" aria-hidden="true"></i>
                         <span>Rotinas & Complementos</span>
                     </div>
                     <div class="skill-item">
-                        <i data-lucide="code"></i>
-                        <span>Linguagem de Programação</span>
+                        <i data-lucide="code" aria-hidden="true"></i>
+                        <span>Lógica de programação</span>
                     </div>
                 </div>
             </section>
 
-            <section class="section-card">
-                <h2><i data-lucide="file-text"></i> Currículo Profissional</h2>
-                <a href="curriculo.pdf" download class="resume-card" id="resumeLink" onclick="handleResumeClick(event)">
+            <section class="section-card" id="curriculo">
+                <h2><i data-lucide="file-text" aria-hidden="true"></i> Currículo Profissional</h2>
+                <div class="resume-card is-unavailable" id="resumeUnavailable">
+                    <div class="resume-text">
+                        <h3>Currículo em atualização</h3>
+                        <p>O arquivo PDF estará disponível nesta página assim que for adicionado.</p>
+                    </div>
+                </div>
+                <a href="curriculo.pdf" download class="resume-card" id="resumeLink" hidden>
                     <div class="resume-info">
                         <div class="resume-icon">
-                            <i data-lucide="file-badge"></i>
+                            <i data-lucide="file-badge" aria-hidden="true"></i>
                         </div>
                         <div class="resume-text">
                             <h3>Baixar Currículo Atualizado</h3>
@@ -466,7 +482,7 @@
                     </div>
                     <div class="download-action">
                         <span>Download PDF</span>
-                        <i data-lucide="download" size="16"></i>
+                        <i data-lucide="download" aria-hidden="true"></i>
                     </div>
                 </a>
             </section>
@@ -477,53 +493,20 @@
         </footer>
     </div>
 
-    <!-- Toast Notification -->
-    <div class="toast" id="toastNotification">
-        <i data-lucide="info" size="20"></i>
-        <span>Currículo em atualização. O arquivo será adicionado em breve!</span>
-    </div>
-
     <script>
-        // Inicializar ícones do Lucide
-        lucide.createIcons();
-
-        // Contingência para o Currículo (Caso o arquivo não exista ou dê erro)
-        function handleResumeClick(event) {
-            const href = event.currentTarget.getAttribute('href');
-            
-            // Verificação simulada de existência do arquivo local
-            // Se o usuário não tiver colocado o arquivo curriculo.pdf na pasta, interceptamos e mostramos o aviso elegante
-            if (href === 'curriculo.pdf') {
-                event.preventDefault();
-                showToast();
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (window.lucide) window.lucide.createIcons();
+            // Mostra o download somente se o PDF realmente existir.
+            try {
+                const response = await fetch('curriculo.pdf', { method: 'HEAD' });
+                if (response.ok && (response.headers.get('content-type') || '').includes('application/pdf')) {
+                    document.getElementById('resumeUnavailable').hidden = true;
+                    document.getElementById('resumeLink').hidden = false;
+                }
+            } catch {
+                // Em caso de falha, mantém o aviso de indisponibilidade.
             }
-        }
-
-        function showToast() {
-            const toast = document.getElementById('toastNotification');
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 4000);
-        }
+        });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-echo "# landing_page-" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/wagnerfernandesse-create/landing_page-.git
-git push -u origin main
